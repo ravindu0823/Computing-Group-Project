@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">Mobile Application</string>
+    <string name="app_name">Farmy</string>
     <string name="sample_text">This is a Sample Text</string>
+    <string name="get_started">Get Started</string>
 </resources>

@@ -23,13 +23,11 @@ public class GetStarted extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openHomePage();
+                Intent intent = new Intent(GetStarted.this, HomePage.class);
+                startActivity(intent);
             }
         });
     }
 
-    public void openHomePage() {
-        Intent intent = new Intent(this, HomePage.class);
-        startActivity(intent);
-    }
+
 }

@@ -13,4 +13,6 @@
     <string name="password_value">raivndu751</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="profile_logout">Log Out</string>
+    <string name="see_user_profile">See user Profile</string>
+    <string name="view_user_profile">View User Profile</string>
 </resources>

@@ -11,95 +11,24 @@
         android:layout_width="123dp"
         android:layout_height="115dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/user_profile"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_person"
+        app:layout_constraintBottom_toTopOf="@+id/nav_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.12"
-        app:riv_border_color="@color/green"
-        app:riv_border_width="3dip"
+        app:riv_border_width="2dip"
         app:riv_corner_radius="30dip"
-        app:riv_mutate_background="true"
         app:riv_oval="true" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtUsername"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="289dp"
-        android:layout_height="68dp"
-        android:layout_marginBottom="24dp"
-        android:hint="@string/username"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgUserProfile"
-        app:layout_constraintVertical_bias="0.1
-">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="#757575" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="289dp"
-        android:layout_height="68dp"
-        android:layout_marginBottom="24dp"
-        android:hint="@string/email"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername"
-        app:layout_constraintVertical_bias="0.1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="#757575" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="289dp"
-        android:layout_height="68dp"
-        android:layout_marginBottom="24dp"
-        android:hint="@string/password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail"
-        app:layout_constraintVertical_bias="0.1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="#757575" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtConfirmPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="289dp"
-        android:layout_height="68dp"
-        android:layout_marginBottom="24dp"
-        android:hint="@string/confirm_password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword"
-        app:layout_constraintVertical_bias="0.1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="#757575" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:menu="@menu/main" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

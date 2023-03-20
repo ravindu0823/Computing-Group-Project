@@ -118,8 +118,8 @@
         app:layout_constraintEnd_toEndOf="@+id/imgUserProfile"
         app:layout_constraintStart_toStartOf="@+id/imgUserProfile"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp" />
+        app:strokeColor="@color/purple_500"
+        app:strokeWidth="2dp" />
 
     <Button
         android:id="@+id/logOut"

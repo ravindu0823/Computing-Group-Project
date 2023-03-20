@@ -9,4 +9,11 @@
     <string name="click_to_login">Click to Login</string>
     <string name="click_to_register">click_to_register</string>
     <string name="logout">Logout</string>
+
+    <string-array name="fields">
+        <item>Field 1</item>
+        <item>Field 2</item>
+        <item>Field 3</item>
+        <item>Field 4</item>
+    </string-array>
 </resources>

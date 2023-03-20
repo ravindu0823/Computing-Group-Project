@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +60,28 @@ public class UserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        View v = inflater.inflate(R.layout.fragment_user, container, false);
+
+        TextView txtUpdateUserDetails;
+        TextView txtLogOut;
+
+        txtUpdateUserDetails = (TextView) v.findViewById(R.id.updateUserDetails);
+        txtLogOut = (TextView) v.findViewById(R.id.logOut);
+
+        txtUpdateUserDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "This is the Update User", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        txtLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "This is the log out", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return v;
     }
 }

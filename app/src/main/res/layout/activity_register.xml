@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,10 +7,10 @@
     android:orientation="vertical"
     android:padding="15dp"
     android:gravity="center"
-    tools:context=".Login">
+    tools:context=".Register">
 
     <TextView
-        android:text="@string/login"
+        android:text="@string/register"
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -27,7 +28,6 @@
             android:id="@+id/email"
             android:hint="@string/email"
             android:layout_width="match_parent"
-            android:inputType="textEmailAddress"
             android:layout_height="wrap_content">
         </com.google.android.material.textfield.TextInputEditText>
 
@@ -40,7 +40,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:hint="@string/password"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </com.google.android.material.textfield.TextInputEditText>
@@ -54,8 +53,8 @@
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/btn_login"
-        android:text="@string/login"
+        android:id="@+id/btn_register"
+        android:text="@string/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -64,8 +63,8 @@
         android:textSize="20sp"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:id="@+id/registerNow"
-        android:text="@string/click_to_register"
+        android:id="@+id/loginNow"
+        android:text="@string/click_to_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

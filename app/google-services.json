@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "463839616648",
+    "project_id": "loginregister2-389e1",
+    "storage_bucket": "loginregister2-389e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463839616648:android:7f2ffc7575fd70e10f893d",
+        "android_client_info": {
+          "package_name": "com.dsstudio.farmy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463839616648-6nvc5jq2lp2n547mjno0r93nv4ul25h9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK5mOIOKzy4x5wuTCHFweQziap0aynWsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463839616648-6nvc5jq2lp2n547mjno0r93nv4ul25h9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463839616648:android:d08248da40ef16d10f893d",
+        "android_client_info": {
+          "package_name": "com.example.loginregister"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463839616648-6nvc5jq2lp2n547mjno0r93nv4ul25h9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK5mOIOKzy4x5wuTCHFweQziap0aynWsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463839616648-6nvc5jq2lp2n547mjno0r93nv4ul25h9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

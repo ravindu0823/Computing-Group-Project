@@ -36,12 +36,12 @@ public class Register extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
+        SessionManager sessionManager = new SessionManager(Register.this);
+
+        if (sessionManager.getUsername() != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
-
         }
     }
 
@@ -101,6 +101,10 @@ public class Register extends AppCompatActivity {
                                     databaseReference.child("Users").child(username).child("email").setValue(email);
                                     databaseReference.child("Users").child(username).child("phone").setValue(phone);
                                     databaseReference.child("Users").child(username).child("password").setValue(password);
+
+                                    User user = new User(username, email, phone, password);
+                                    SessionManager sessionManager = new SessionManager(Register.this);
+                                    sessionManager.saveSession(user);
 
                                     // Make a Toast
                                     Toast.makeText(Register.this, "User Register successfully", Toast.LENGTH_SHORT).show();

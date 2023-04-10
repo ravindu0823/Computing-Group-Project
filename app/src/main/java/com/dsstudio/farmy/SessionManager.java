@@ -29,6 +29,18 @@ public class SessionManager {
         editor.putString("password", PASSWORD).commit();
     }
 
+    public void setUSERNAME(String USERNAME) {
+        editor.putString("username", USERNAME).commit();
+    }
+
+    public void setPHONE(String PHONE) {
+        editor.putString("phone", PHONE).commit();
+    }
+
+    public void setEMAIL(String EMAIL) {
+        editor.putString("email", EMAIL).commit();
+    }
+
     public String getUsername() {
         return sharedPreferences.getString("username", null);
     }
@@ -43,5 +55,9 @@ public class SessionManager {
 
     public String getPassword() {
         return sharedPreferences.getString("password", null);
+    }
+
+    public void logout() {
+        editor.clear().commit();
     }
 }

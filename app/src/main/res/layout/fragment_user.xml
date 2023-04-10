@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/balsamiq_sans"
-        android:text="Profile Photo"
+        android:text="Change Profile Picture"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -45,7 +45,7 @@
         android:layout_height="175dp"
         android:layout_marginTop="10dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/person"
+        android:src="@drawable/person_avatar"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
@@ -65,6 +65,7 @@
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
+        app:startIconDrawable="@drawable/ic_person"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
@@ -75,11 +76,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtUsername"
+            android:editable="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
-            android:hint="Username"
-            android:text="ravindu751" />
+            android:hint="Username" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,6 +87,7 @@
         android:id="@+id/textInputLayout2"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
+        app:startIconDrawable="@drawable/ic_email"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
@@ -99,9 +100,7 @@
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
-            android:hint="Email"
-            android:text="ravindu@gmail.com" />
+            android:hint="Email" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,8 +109,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        app:startIconDrawable="@drawable/baseline_local_phone_24"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="@+id/imgUserProfile"
         app:layout_constraintStart_toStartOf="@+id/imgUserProfile"
@@ -121,9 +121,7 @@
             android:id="@+id/txtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
-            android:hint="Phone"
-            android:text="123456789" />
+            android:hint="Phone" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -133,7 +131,7 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="Update User Details"
         app:icon="@drawable/ic_edit"
         app:layout_constraintEnd_toEndOf="@+id/imgUserProfile"

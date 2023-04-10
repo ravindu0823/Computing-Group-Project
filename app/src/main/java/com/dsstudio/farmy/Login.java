@@ -36,12 +36,12 @@ public class Login extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
+        SessionManager sessionManager = new SessionManager(Login.this);
+
+        if (sessionManager.getUsername() != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
-
         }
     }
 
@@ -85,6 +85,11 @@ public class Login extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.hasChild(username)) {
                                 if (snapshot.child(username).child("password").getValue().toString().equals(password)) {
+                                    User user = new User(username, snapshot.child(username).child("email").getValue().toString(), password, snapshot.child(username).child("phone").getValue().toString());
+
+                                    SessionManager sessionManager = new SessionManager(Login.this);
+                                    sessionManager.saveSession(user);
+
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
                                     finish();

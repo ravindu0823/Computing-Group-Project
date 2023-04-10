@@ -1,14 +1,11 @@
 package com.dsstudio.farmy;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -21,22 +18,27 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Register extends AppCompatActivity {
-
-    TextInputEditText editTextEmail,editTextPassword;
-    Button buttonReg;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://plant-diseases-classifier-default-rtdb.firebaseio.com/");
+    TextInputEditText txtEmail, txtPassword, txtUsername, txtPhone, txtConfirmPassword;
+    Button btnRegister;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
-    TextView textView;
+    TextView txtLogin;
 
     @Override
     public void onStart() {
         super.onStart();
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        if (currentUser != null) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
 
@@ -48,58 +50,92 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        mAuth=FirebaseAuth.getInstance();
-        editTextEmail = findViewById(R.id.email);
-        editTextPassword = findViewById(R.id.password);
-        buttonReg =findViewById(R.id.btn_register);
+        mAuth = FirebaseAuth.getInstance();
+
+        txtUsername = findViewById(R.id.username);
+        txtEmail = findViewById(R.id.regEmail);
+        txtPassword = findViewById(R.id.regPassword);
+        txtPhone = findViewById(R.id.phone);
+        txtConfirmPassword = findViewById(R.id.regConfirmPassword);
+
         progressBar = findViewById(R.id.progressBar);
-        textView = findViewById(R.id.loginNow);
-        textView.setOnClickListener(new View.OnClickListener() {
+        txtLogin = findViewById(R.id.loginNow);
+        txtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Login.class);
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        buttonReg.setOnClickListener(new View.OnClickListener() {
+        btnRegister = findViewById(R.id.btn_register);
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar .setVisibility(View.VISIBLE);
-                String email , password;
-                email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf(editTextPassword.getText());
+                // progressBar.setVisibility(View.VISIBLE);
 
-                if(TextUtils.isEmpty(email)){
-                    Toast.makeText(Register.this, "Enter mail", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                String username = txtUsername.getText().toString();
+                String email = txtEmail.getText().toString();
+                String password = txtPassword.getText().toString();
+                String phone = txtPhone.getText().toString();
+                String confirmPassword = txtConfirmPassword.getText().toString();
 
-                if(TextUtils.isEmpty(password)){
-                    Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                if (username.isEmpty() || email.isEmpty() || password.isEmpty() || phone.isEmpty() || confirmPassword.isEmpty()) {
+                    txtUsername.setError("Please enter your username");
+                    txtEmail.setError("Please enter your email");
+                    txtPassword.setError("Please enter your password");
+                    txtPhone.setError("Please enter your phone number");
+                    txtConfirmPassword.setError("Please enter your password");
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                } else {
+                    if (password.equals(confirmPassword)) {
+                        databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-
-                                    Toast.makeText(Register.this, "Account created.",
-                                            Toast.LENGTH_SHORT).show();
-
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.hasChild(username)) {
+                                    txtUsername.setError("Username already exists");
                                 } else {
-                                    // If sign in fails, display a message to the user.
+                                    // register user
+                                    databaseReference.child("Users").child(username).child("email").setValue(email);
+                                    databaseReference.child("Users").child(username).child("phone").setValue(phone);
+                                    databaseReference.child("Users").child(username).child("password").setValue(password);
 
-                                    Toast.makeText(Register.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-
+                                    // Make a Toast
+                                    Toast.makeText(Register.this, "User Register successfully", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
                             }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
                         });
+                    } else {
+                        txtConfirmPassword.setError("Password does not match");
+                    }
+                }
+
+                /*mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressBar.setVisibility(View.GONE);
+                        if (task.isSuccessful()) {
+
+                            Toast.makeText(Register.this, "Account created.", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+
+                            Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });*/
 
             }
         });

@@ -5,9 +5,9 @@
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="register">register</string>
-    <string name="click_to_login">Click to Login</string>
-    <string name="click_to_register">click_to_register</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">I already have an account</string>
+    <string name="click_to_register">Create an account</string>
     <string name="logout">Logout</string>
 
     <string-array name="fields">

@@ -18,21 +18,27 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
-    TextInputEditText editTextEmail,editTextPassword;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://plant-diseases-classifier-default-rtdb.firebaseio.com/");
+    TextInputEditText txtUsername, txtPassword;
     Button buttonLogin;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
-    TextView textView;
+    TextView txtRegister;
 
     @Override
     public void onStart() {
         super.onStart();
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        if (currentUser != null) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
 
@@ -44,16 +50,19 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuth=FirebaseAuth.getInstance();
-        editTextEmail = findViewById(R.id.email);
-        editTextPassword = findViewById(R.id.password);
-        buttonLogin =findViewById(R.id.btn_login);
+        mAuth = FirebaseAuth.getInstance();
+
+        txtUsername = findViewById(R.id.loginUsername);
+        txtPassword = findViewById(R.id.password);
+
+        buttonLogin = findViewById(R.id.btn_login);
         progressBar = findViewById(R.id.progressBar);
-        textView = findViewById(R.id.registerNow);
-        textView.setOnClickListener(new View.OnClickListener() {
+
+        txtRegister = findViewById(R.id.registerNow);
+        txtRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Register.class);
+                Intent intent = new Intent(getApplicationContext(), Register.class);
                 startActivity(intent);
                 finish();
             }
@@ -62,43 +71,37 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar .setVisibility(View.VISIBLE);
-                String email , password;
-                email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf(editTextPassword.getText());
+                // progressBar.setVisibility(View.VISIBLE);
 
-                if(TextUtils.isEmpty(email)){
-                    Toast.makeText(Login.this, "Enter mail", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                String username = txtUsername.getText().toString();
+                String password = txtPassword.getText().toString();
 
-                if(TextUtils.isEmpty(password)){
-                    Toast.makeText(Login.this, "Enter Password", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-
-                                    Toast.makeText(getApplicationContext(),"Login Successful.",Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                if (username.isEmpty() || password.isEmpty()) {
+                    txtUsername.setError("Please enter your email");
+                    txtPassword.setError("Please enter your password");
+                } else {
+                    databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.hasChild(username)) {
+                                if (snapshot.child(username).child("password").getValue().toString().equals(password)) {
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
                                     finish();
-
-
                                 } else {
-
-                                    Toast.makeText(Login.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-
+                                    txtPassword.setError("Password is incorrect");
                                 }
+                            } else {
+                                txtUsername.setError("Email is incorrect");
                             }
-                        });
+                        }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
             }
         });
     }

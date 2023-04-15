@@ -3,6 +3,8 @@
     package="com.dsstudio.farmy">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +22,13 @@
         </activity>
         <activity
             android:name=".Login"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Camera"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

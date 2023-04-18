@@ -12,6 +12,8 @@ public class SessionManager {
     String EMAIL = "";
     String PASSWORD = "";
 
+    String DISEASE_NAME = "";
+
     public SessionManager(Context context) {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -59,5 +61,14 @@ public class SessionManager {
 
     public void logout() {
         editor.clear().commit();
+    }
+
+    public void setDiseaseName(Model model) {
+        DISEASE_NAME = model.getDiseaseName();
+        editor.putString("disease_name", DISEASE_NAME).commit();
+    }
+
+    public String getDiseaseName() {
+        return sharedPreferences.getString("disease_name", "No data");
     }
 }

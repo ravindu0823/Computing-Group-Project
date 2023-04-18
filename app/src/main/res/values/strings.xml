@@ -9,6 +9,8 @@
     <string name="click_to_login">I already have an account</string>
     <string name="click_to_register">Create an account</string>
     <string name="logout">Logout</string>
+    <string name="run_model">Running the model...</string>
+    <string name="detect">Detect</string>
 
     <string-array name="fields">
         <item>Field 1</item>

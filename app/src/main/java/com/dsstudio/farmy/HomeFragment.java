@@ -23,7 +23,7 @@ public class HomeFragment extends Fragment {
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), Camera.class));
+                startActivity(new Intent(getActivity(), DetectMainActivity.class));
             }
         });
         return v;

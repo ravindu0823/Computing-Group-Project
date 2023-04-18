@@ -15,6 +15,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -68,6 +69,16 @@ public class ResultView extends View {
             model.setDiseaseName(PrePostProcessor.mClasses[result.classIndex]);
             sessionManager.setDiseaseName(model);
             Log.d("Disease Name", PrePostProcessor.mClasses[result.classIndex]);
+
+            StringBuilder data = new StringBuilder(PrePostProcessor.mClasses[result.classIndex]);
+            String[] arrOfResult = data.toString().split("_");
+            data = new StringBuilder("");
+            for (String s : arrOfResult) {
+                data.append(s).append(" ");
+            }
+            StringBuilder finalResult = data;
+
+            Toast.makeText(getContext(), "Your Plant has " + finalResult + "disease", Toast.LENGTH_LONG).show();
         }
     }
 

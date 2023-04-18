@@ -16,6 +16,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -25,10 +26,17 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.pytorch.IValue;
 import org.pytorch.LiteModuleLoader;
@@ -43,6 +51,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -58,6 +67,8 @@ public class DetectMainActivity extends AppCompatActivity implements Runnable {
     private Bitmap mBitmap = null;
     private Module mModule = null;
     private float mImgScaleX, mImgScaleY, mIvScaleX, mIvScaleY, mStartX, mStartY;
+
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://plant-diseases-classifier-default-rtdb.firebaseio.com/");
 
     public static String assetFilePath(Context context, String assetName) throws IOException {
         File file = new File(context.getFilesDir(), assetName);
@@ -109,13 +120,25 @@ public class DetectMainActivity extends AppCompatActivity implements Runnable {
             @Override
             public void onClick(View view) {
                 SessionManager sessionManager = new SessionManager(DetectMainActivity.this);
-                StringBuilder result = new StringBuilder(sessionManager.getDiseaseName());
-                String[] arrOfResult = result.toString().split("_");
-                result = new StringBuilder("");
-                for (String s : arrOfResult) {
-                    result.append(s).append(" ");
-                }
-                Toast.makeText(DetectMainActivity.this, "Disease Name: " + result, Toast.LENGTH_LONG).show();
+
+                String username = sessionManager.getUsername();
+                String diseaseName = sessionManager.getDiseaseName();
+                databaseReference.child("Diseases").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            databaseReference.child("Diseases").child(username).child(diseaseName).setValue(LocalDate.now().toString());
+                            Toast.makeText(DetectMainActivity.this, "Result Saved", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
             }
         });
 

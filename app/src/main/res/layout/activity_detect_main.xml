@@ -68,7 +68,7 @@
         android:id="@+id/selectButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Select"
+        android:text="Gallery"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/liveButton"
@@ -96,5 +96,18 @@
         app:layout_constraintEnd_toEndOf="@+id/selectButton"
         app:layout_constraintStart_toStartOf="@+id/selectButton"
         app:layout_constraintTop_toBottomOf="@+id/selectButton" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/balsamiq_sans"
+        android:text="Add an Image of your Plant"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

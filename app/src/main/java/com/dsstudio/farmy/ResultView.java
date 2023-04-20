@@ -7,6 +7,7 @@
 package com.dsstudio.farmy;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,7 +16,10 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 
@@ -37,7 +41,7 @@ public class ResultView extends View {
         super(context);
     }
 
-    public ResultView(Context context, AttributeSet attrs){
+    public ResultView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPaintRectangle = new Paint();
         mPaintRectangle.setColor(Color.YELLOW);
@@ -55,7 +59,7 @@ public class ResultView extends View {
             canvas.drawRect(result.rect, mPaintRectangle);
 
             Path mPath = new Path();
-            RectF mRectF = new RectF(result.rect.left, result.rect.top, result.rect.left + TEXT_WIDTH,  result.rect.top + TEXT_HEIGHT);
+            RectF mRectF = new RectF(result.rect.left, result.rect.top, result.rect.left + TEXT_WIDTH, result.rect.top + TEXT_HEIGHT);
             mPath.addRect(mRectF, Path.Direction.CW);
             mPaintText.setColor(Color.MAGENTA);
             canvas.drawPath(mPath, mPaintText);
@@ -78,7 +82,18 @@ public class ResultView extends View {
             }
             StringBuilder finalResult = data;
 
-            Toast.makeText(getContext(), "Your Plant has " + finalResult + "disease", Toast.LENGTH_LONG).show();
+            // Toast.makeText(getContext(), "Your Plant has " + finalResult + "disease", Toast.LENGTH_LONG).show();
+
+            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext()).setTitle("Result").setMessage("Your Plant has " + finalResult + "disease").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.create();
+            builder.show();
+
+
         }
     }
 

@@ -89,9 +89,9 @@
 
     <Button
         android:id="@+id/btnSaveResults"
-        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="Save Results"
         app:layout_constraintEnd_toEndOf="@+id/selectButton"
         app:layout_constraintStart_toStartOf="@+id/selectButton"

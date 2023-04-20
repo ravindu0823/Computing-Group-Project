@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/customborder"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="235dp"
+            android:layout_height="162dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/disease_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disease" />
+
+        <TextView
+            android:id="@+id/scanned_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

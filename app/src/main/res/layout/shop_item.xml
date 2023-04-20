@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shop" />
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:id="@+id/shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Name"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/shop_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Description" />
+
+            <TextView
+                android:id="@+id/shop_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Location" />
+
+            <TextView
+                android:id="@+id/shop_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Number" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/shop_contact_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Contact"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

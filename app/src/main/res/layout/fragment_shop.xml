@@ -22,7 +22,7 @@
         android:textSize="20sp"
         app:drawableLeftCompat="@drawable/baseline_shopping_cart_24" />
 
-    <ScrollView
+    <!--<ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -48,7 +48,12 @@
         </LinearLayout>
 
 
-    </ScrollView>
+    </ScrollView>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

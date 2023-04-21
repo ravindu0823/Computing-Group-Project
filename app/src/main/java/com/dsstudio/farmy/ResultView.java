@@ -8,6 +8,7 @@ package com.dsstudio.farmy;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -84,7 +85,13 @@ public class ResultView extends View {
 
             // Toast.makeText(getContext(), "Your Plant has " + finalResult + "disease", Toast.LENGTH_LONG).show();
 
-            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext()).setTitle("Result").setMessage("Your Plant has " + finalResult + "disease").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext()).setTitle("Result").setMessage("Your Plant has " + finalResult + "disease").setPositiveButton("View Treatments", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Intent intent = new Intent(getContext(), TreatmentsActivity.class);
+                    getContext().startActivity(intent);
+                }
+            }).setNegativeButton("Done", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     dialogInterface.dismiss();

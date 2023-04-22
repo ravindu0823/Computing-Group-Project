@@ -44,13 +44,13 @@ public class BaseModuleActivity extends AppCompatActivity {
     }
 
     protected void stopBackgroundThread() {
-      mBackgroundThread.quitSafely();
-      try {
-          mBackgroundThread.join();
-          mBackgroundThread = null;
-          mBackgroundHandler = null;
-      } catch (InterruptedException e) {
-          Log.e("Object Detection", "Error on stopping background thread", e);
-      }
+        mBackgroundThread.quitSafely();
+        try {
+            mBackgroundThread.join();
+            mBackgroundThread = null;
+            mBackgroundHandler = null;
+        } catch (InterruptedException e) {
+            Log.e("Object Detection", "Error on stopping background thread", e);
+        }
     }
 }

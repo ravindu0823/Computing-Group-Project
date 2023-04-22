@@ -26,26 +26,26 @@
                 android:id="@+id/shop_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shop Name"
+                android:text="@string/shop_name"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/shop_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shop Description" />
+                android:text="@string/shop_description" />
 
             <TextView
                 android:id="@+id/shop_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shop Location" />
+                android:text="@string/shop_location" />
 
             <TextView
                 android:id="@+id/shop_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contact Number" />
+                android:text="@string/contact_number" />
 
 
         </LinearLayout>
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Contact"
+            android:text="@string/contact"
             android:textSize="11sp" />
     </LinearLayout>
 

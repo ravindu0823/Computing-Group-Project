@@ -46,9 +46,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
     @Override
     protected TextureView getCameraPreviewTextureView() {
         mResultView = findViewById(R.id.resultView);
-        return ((ViewStub) findViewById(R.id.object_detection_texture_view_stub))
-                .inflate()
-                .findViewById(R.id.object_detection_texture_view);
+        return ((ViewStub) findViewById(R.id.object_detection_texture_view_stub)).inflate().findViewById(R.id.object_detection_texture_view);
     }
 
     @Override
@@ -103,10 +101,10 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
         final Tensor outputTensor = outputTuple[0].toTensor();
         final float[] outputs = outputTensor.getDataAsFloatArray();
 
-        float imgScaleX = (float)bitmap.getWidth() / PrePostProcessor.mInputWidth;
-        float imgScaleY = (float)bitmap.getHeight() / PrePostProcessor.mInputHeight;
-        float ivScaleX = (float)mResultView.getWidth() / bitmap.getWidth();
-        float ivScaleY = (float)mResultView.getHeight() / bitmap.getHeight();
+        float imgScaleX = (float) bitmap.getWidth() / PrePostProcessor.mInputWidth;
+        float imgScaleY = (float) bitmap.getHeight() / PrePostProcessor.mInputHeight;
+        float ivScaleX = (float) mResultView.getWidth() / bitmap.getWidth();
+        float ivScaleY = (float) mResultView.getHeight() / bitmap.getHeight();
 
         final ArrayList<Result> results = PrePostProcessor.outputsToNMSPredictions(outputs, imgScaleX, imgScaleY, ivScaleX, ivScaleY, 0, 0);
         return new AnalysisResult(results);

@@ -13,42 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:drawablePadding="10dp"
-        android:drawableTint="@color/purple_500"
         android:fontFamily="@font/balsamiq_sans"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="Marketplace"
+        android:text="@string/marketplace"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:drawableLeftCompat="@drawable/baseline_shopping_cart_24" />
-
-    <!--<ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="30dp">
-
-            <include layout="@layout/shop_component" />
-
-            <include layout="@layout/shop_component" />
-
-            <include layout="@layout/shop_component" />
-
-            <include layout="@layout/shop_component" />
-
-            <include layout="@layout/shop_component" />
-
-            <include layout="@layout/shop_component" />
-
-
-        </LinearLayout>
-
-
-    </ScrollView>-->
+        app:drawableLeftCompat="@drawable/baseline_shopping_cart_24"
+        app:drawableTint="@color/purple_500" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

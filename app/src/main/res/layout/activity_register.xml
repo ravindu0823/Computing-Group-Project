@@ -30,7 +30,7 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="@string/username"
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -46,7 +46,7 @@
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
+            android:hint="@string/phone_number"
             android:inputType="phone" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -62,7 +62,7 @@
             android:id="@+id/regEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email Address"
+            android:hint="@string/email_address"
             android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -79,7 +79,7 @@
             android:id="@+id/regPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -96,7 +96,7 @@
             android:id="@+id/regConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirm Passowrd"
+            android:hint="@string/confirm_passowrd"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>

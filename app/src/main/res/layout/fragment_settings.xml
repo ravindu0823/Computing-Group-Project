@@ -14,7 +14,7 @@
         android:drawablePadding="10dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="Contact Us"
+        android:text="@string/contact_us"
         android:textSize="25sp"
         app:drawableLeftCompat="@drawable/ic_person"
         app:drawableTint="@color/purple_500" />
@@ -27,7 +27,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:hint="Select Agent">
+        android:hint="@string/select_agent">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteSelectAgent"
@@ -35,26 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="none"
-            android:text="Please Select" />
+            android:text="@string/please_select" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <!--<com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/agentEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:editable="false"
-            android:hint="Agent Email" />
-
-    </com.google.android.material.textfield.TextInputLayout>-->
-
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -68,7 +50,7 @@
             android:id="@+id/subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Subject" />
+            android:hint="@string/subject" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,7 +66,7 @@
             android:id="@+id/senderEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your Email"
+            android:hint="@string/your_email"
             android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -104,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:gravity="top"
-            android:hint="Description" />
+            android:hint="@string/description" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,7 +96,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:text="Submit Question" />
-
+        android:text="@string/submit_question" />
 
 </LinearLayout>

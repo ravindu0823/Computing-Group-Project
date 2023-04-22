@@ -102,7 +102,7 @@ public class Register extends AppCompatActivity {
                                     databaseReference.child("Users").child(username).child("phone").setValue(phone);
                                     databaseReference.child("Users").child(username).child("password").setValue(password);
 
-                                    User user = new User(username, email, phone, password);
+                                    User user = new User(username, email, password, phone);
                                     SessionManager sessionManager = new SessionManager(Register.this);
                                     sessionManager.saveSession(user);
 

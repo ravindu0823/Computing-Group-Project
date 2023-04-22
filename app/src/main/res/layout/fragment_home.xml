@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Farmy"
+            android:text="@string/app_name"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -30,18 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Scanned Diseases"
+        android:text="@string/scanned_diseases"
         android:textSize="20sp" />
-
-    <!--<HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:scrollbars="none">
-
-
-
-    </HorizontalScrollView>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/diseaseRecyclerView"
@@ -58,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Scan Image" />
+        android:text="@string/scan_image" />
 
 
 </LinearLayout>

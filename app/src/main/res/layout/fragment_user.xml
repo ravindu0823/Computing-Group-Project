@@ -11,15 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawablePadding="10dp"
-        android:drawableTint="@color/purple_500"
         android:fontFamily="@font/balsamiq_sans"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="User Account Details"
+        android:text="@string/user_account_details"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
         app:drawableLeftCompat="@drawable/ic_person"
+        app:drawableTint="@color/purple_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/balsamiq_sans"
-        android:text="Change Profile Picture"
+        android:text="@string/change_profile_picture"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:editable="false"
-            android:hint="Username"
+            android:hint="@string/username"
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,7 +101,7 @@
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email_address"
             android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -123,7 +123,7 @@
             android:id="@+id/txtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone"
+            android:hint="@string/phone_number"
             android:inputType="phone" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -135,7 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Update User Details"
+        android:text="@string/update_user_details"
         app:icon="@drawable/ic_edit"
         app:layout_constraintEnd_toEndOf="@+id/imgUserProfile"
         app:layout_constraintStart_toStartOf="@+id/imgUserProfile"
@@ -149,7 +149,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Log Out"
+        android:text="@string/log_out"
         app:backgroundTint="@color/red"
         app:icon="@drawable/ic_logout"
         app:layout_constraintEnd_toEndOf="@+id/updateUserDetails"

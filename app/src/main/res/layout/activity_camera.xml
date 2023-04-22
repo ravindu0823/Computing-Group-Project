@@ -11,12 +11,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/balsamiq_sans"
-        android:textStyle="bold"
-        android:gravity="center"
         android:layout_marginBottom="30dp"
-        android:text="Add an Image of your Plant"
-        android:textSize="20sp" />
+        android:fontFamily="@font/balsamiq_sans"
+        android:gravity="center"
+        android:text="@string/add_image"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/displayImageView"
@@ -40,13 +40,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
-            android:text="Capture Image" />
+            android:text="@string/capture_image" />
 
         <Button
             android:id="@+id/galleryBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Upload Image" />
+            android:text="@string/upload_image" />
     </LinearLayout>
 
 
